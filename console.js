@@ -1,0 +1,8 @@
+console.log("Strona nie istnieje", 404)
+console.log(window)
+console.table([1, 2, 3])
+console.group("bulbulator")
+console.log("Nie wiem")
+console.log("Nie oddycham")
+console.log("Nie zamierzam")
+console.groupEnd()
