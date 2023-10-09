@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="zadanie4.css">
+    <title>Tak</title>
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="zadanie" id="zadanie1">
+            <h1>Zadanie 1</h1>
+        <form id="myForm">
+            <textarea type="text" id="myfocus"></textarea>
+          </form>
+        </div>
+        <div class="zadanie" id="zadanie2">
+            <h1>ZADANIE 2</h1>
+            <form id="myp">
+                <input type="text" id="myInput">
+              </form>
+        </div>
+        <div class="zadanie" id="zadanie3">
+            <h1>ZADANIE 3</h1>
+            <p>
+            <select name="selectColors" id="selectColors" onchange="changeColor()">
+                <option value="black">black</option>
+                <option value="brown">brown</option>
+                <option value="blue">blue</option>
+                <option value="blueviolet">blueviolet</option>
+                <option value="burlywood">burlywood</option>
+                <option value="bisque">bisque</option>
+            </select>
+            </p>
+        </div>
+        <div class="zadanie" id="zadanie4">
+            <h1>ZADANIE 4</h1>
+            <p onclick="largeText()" ondblclick="MediumText()" id="textToChange">3 Ananasy</p>
+        </div>
+    <script src="zadanie4.js"></script>
+    </div>
+</body>
+</html>

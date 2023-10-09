@@ -1,41 +1,51 @@
-//Zadanie 1
-let przycisk1 = document.getElementById("zmiana1"); 
-let mojnaglowek1 = document.getElementById("tekst1"); 
+//zadanie 1
+document.querySelector("#zad1").addEventListener("click", function(){
+  document.querySelector("#zadanie1 h6").innerHTML = "<i>Świetnie!</i>"
+})
 
-przycisk1.addEventListener("click", function() { 
-  mojnaglowek1.innerHTML = "<i>Świetnie!</i>"; 
-});
+//zadanie 2
+document.querySelector("#zad2").addEventListener("click", function (){
+  document.querySelector("#zadanie2 h5").innerText = "<i>Świetnie</i>"
+})
 
-//Zadanie2
-let przycisk2 = document.getElementById("zmiana2"); 
-let mojnaglowek2 = document.getElementById("tekst2"); 
+//zadanie 3
+document.querySelector("#zad3").addEventListener("click", function(){
+  document.querySelector("#zadanie3 p strong").style.border = "10px dotted green"
+})
 
-przycisk2.addEventListener("click", function() { 
-  mojnaglowek2.innerText = "<i>Świetnie!</i>";
-}); 
+//zadanie 4
+document.querySelector("#zad4").addEventListener("click", function(){
+  alert(document.querySelector("#zadanie4 p").getAttribute("title"))
+})
 
-//Zadanie3
-let przycisk3 = document.getElementById("zmiana3"); 
-let kontener1 = document.getElementById("mojdiv");
+//zadanie 5
+document.querySelector("#zad5").addEventListener("click", function (){
+  document.querySelector("#zadanie5 p").setAttribute("dir", "rtl")
+})
 
-przycisk3.addEventListener("click", function() { 
-  let elementy = kontener1.children; 
-  console.log(elementy); 
-  let wybrany = elementy[3].firstChild;
-  console.log(wybrany.tagName); 
-  wybrany.style.border = "10px dotted deepskyblue"; 
-});
-    
-//Zadanie 4
-function showTitle() {
-    var p = document.getElementById("przyklad2"); 
-    var title = p.getAttribute("title"); 
-    alert(title); 
-}
+//zadanie 6
+document.querySelector("#zad6").addEventListener("click", function (){
+  if(document.querySelector("#zadanie6 input").hasAttribute("disabled")){
+      document.querySelector("#zad6").innerText = "Można edytować"
+  } else {
+      document.querySelector("#zad6").innerText = "Edycja jest teraz niemożliwa"
+  }
+  document.querySelector("#zadanie6 input").toggleAttribute("disabled")
+})
 
+//zadanie 7
+document.querySelector("#zad7").addEventListener("click", function() {
+  document.querySelector("#zadanie7 p").removeAttribute("style")
+  document.querySelector("#zadanie7 a").removeAttribute("href")
+})
 
-//5
-function ChangeDir (){
-    var p = document.getElementById("przyklad2");
-    p.setAttribute("dir","rtl")
-}
+//zadanie 8
+document.querySelector("#zad8").addEventListener("click", function(){
+  let headerData = document.querySelector("#zadanie8 h3")
+  console.log(headerData.attributes)
+  console.log(headerData.dataset)
+  for (let i = 0; i <= headerData.attributes.length; i++) {
+      document.querySelector("#dataset-attributes-container").innerHTML +=
+          "<p>Atrybut: <b>"+ headerData.attributes[i] +"</b> ma wartość: "+ headerData.dataset[i] + "</p>"
+  }
+})
