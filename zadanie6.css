@@ -1,0 +1,22 @@
+    fieldset {
+      padding: 15px;
+      border: 3px dashed magenta;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background-color: lightgoldenrodyellow;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+      body {
+        background-color: aqua;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    } 
