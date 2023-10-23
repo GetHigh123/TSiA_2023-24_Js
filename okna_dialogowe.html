@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <button onclick="alert('To jest właśnie proste wywołanie okna alert.')">Proste wywołanie okna alert</button>
+    <br><br>
+    <button id='abc' onclick="alert('Wywołanie okna alert poperzez nasłuchiwanie zdarzenia na tym elemencie.')">'Wywołanie okna alert poprzez nasłuchiwanie zdarzenia na tym elemencie.</button>
+    <br><br>
+    <button id='confirm'>Wywołanie okna confirm</button>
+    <br><br>
+    <button id='prompt'>Wywołanie okna prompt</button>
+    <br><br>
+    <button id='haslo'>Tajne hasło</button>
+    <br><br>
+    <button id='sala'>Zaczynamy</button>
+</body>
+<head>
+<script>
+document.getElementById("abc").addEventListener("click", function() {
+    alert("To jest właśnie wywołanie okna alert poprzez nasłuchiwanie zdarzenia na tym elemencie.");
+});
+document.getElementById("confirm").addEventListener("click", function() {
+    const result = confirm("Czy jesteś pewien, że chcesz kontynuować?");
+    if (result) {
+      alert("No to kontynuuj...");
+    } else {
+      alert("Przykro mi, że nie chcesz kontynuować...");
+    }
+});
+document.getElementById("prompt").addEventListener("click", function(){
+  var imie = prompt("Podaj swoje imię:");
+  if (imie) {
+    alert("Witaj " + imie);
+  } else {
+    alert("Anulowałeś akcję, a okienko zwróciło " + imie);
+  }
+});
+document.getElementById("haslo").addEventListener("click", function(){
+    alert("Ptaki latają kluczem.");
+});
+document.getElementById("sala").addEventListener("click", function(){
+  var sala = prompt("Wpisz numer sali:");
+  if (sala) {
+    alert("Jesteś w " + sala);
+  } else {
+    alert("Anulowałeś akcję, a okno prompt zwróciło " + sala);
+  }
+});
+</script>
+</html>  
