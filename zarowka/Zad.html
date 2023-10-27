@@ -1,0 +1,54 @@
+<html>
+<head>
+<style>
+fieldset {
+  border: 2px solid red;
+  background-color: antiquewhite;
+}
+
+legend {
+  font-weight: bold;
+}
+</style>
+<script>
+var lastChecked = null;
+var secondLastChecked = null;
+function check() {
+  var boxes = document.querySelectorAll("input[type=checkbox]");
+  var checked = [];
+  for (var i = 0; i < boxes.length; i++) {
+    if (boxes[i].checked) {
+      checked.push(i);
+    }
+  }
+  if (checked.length == 3) {
+    lastChecked.checked = false;
+    lastChecked = secondLastChecked;
+    secondLastChecked = boxes[checked[2]];
+  } else if (checked.length == 2) {
+    lastChecked = boxes[checked[0]];
+    secondLastChecked = boxes[checked[1]];
+  } else if (checked.length == 1) {
+    lastChecked = boxes[checked[0]];
+    secondLastChecked = null;
+  } else {
+    lastChecked = null;
+    secondLastChecked = null;
+  }
+}
+</script>
+</head>
+<body>
+<form>
+<fieldset>
+<legend>Checkboxy</legend>
+<input type="checkbox" id="dobrze" name="dobrze" value="Dobrze" onclick="check()">
+<label for="dobrze">Dobrze</label><br>
+<input type="checkbox" id="tanio" name="tanio" value="Tanio" onclick="check()">
+<label for="tanio">Tanio</label><br>
+<input type="checkbox" id="szybko" name="szybko" value="Szybko" onclick="check()">
+<label for="szybko">Szybko</label><br>
+</fieldset>
+</form>
+</body>
+</html>

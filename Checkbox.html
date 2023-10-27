@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkbox Selection</title>
+</head>
+<body>
+    <label>
+        <input type="checkbox" name="checkbox" value="dobrze"> Dobrze
+    </label>
+    <label>
+        <input type="checkbox" name="checkbox" value="tanio"> Tanio
+    </label>
+    <label>
+        <input type="checkbox" name="checkbox" value="szybko"> Szybko
+    </label>
+
+    <script>
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const checkedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+                
+                if (checkedCheckboxes.length > 2) {
+                    checkbox.checked = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
