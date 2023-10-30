@@ -1,0 +1,14 @@
+table {
+    border-top: 2px solid brown;
+    border-bottom: 2px solid brown;
+    border-collapse: collapse;
+    width: 50%;
+    margin: 20px auto;
+}
+table, th, td {
+    border: 2px solid rebeccapurple;
+}
+th, td {
+    padding: 8px;
+    text-align: center;
+}

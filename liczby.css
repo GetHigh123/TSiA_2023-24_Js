@@ -1,0 +1,12 @@
+  h1 {
+    text-shadow: 2px 2px gray;
+  }
+  p, button {
+    border-right: none;
+    border-left: none;
+    background-color: lightsteelblue;
+    border-top: 2px solid darkblue;
+    border-bottom: 2px solid darkblue;
+    padding: 10px;
+    cursor: pointer;
+  }

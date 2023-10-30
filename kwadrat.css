@@ -1,0 +1,10 @@
+.prostokat {
+    width: 100px;
+    height: 50px;
+    background-color: #ffffff;
+    position: relative;
+}
+
+.info {
+    margin-top: 10px;
+}
