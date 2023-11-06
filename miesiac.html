@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Miesiące</title>
+    <style>
+        h1, h3 {
+            text-align: center;
+        }
+        h1 {
+            border: 4px solid navy;
+        }
+        h3 {
+            border-top: 2px dashed pink;
+            border-bottom: 2px dashed pink;
+            font-family: cursive;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        
+let miesiac = Math.floor(Math.random() * 15) + 1;
+
+let naglowek = document.createElement('h1');
+naglowek.textContent = miesiac;
+document.body.appendChild(naglowek);
+
+let tekst = document.createElement('h3');
+
+switch(miesiac) {
+    case 1:
+    case 2:
+    case 3:
+        tekst.textContent = 'I kwartał';
+        break;
+    case 4:
+    case 5:
+    case 6:
+        tekst.textContent = 'II kwartał';
+        break;
+    case 7:
+    case 8:
+    case 9:
+        tekst.textContent = 'III kwartał';
+        break;
+    case 10:
+    case 11:
+    case 12:
+        tekst.textContent = 'IV kwartał';
+        break;
+    default:
+        tekst.textContent = 'Błędny numer miesiąca';
+}
+
+document.body.appendChild(tekst);
+    </script>
+</body>
+</html>
