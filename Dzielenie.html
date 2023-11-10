@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator dzielenia liczb całkowitych</title>
+    <style>
+        .bold {
+            font-weight: 1000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dzielenie z resztą</h1>
+    <p><b>Podaj dwie liczby całkowite</b></p>
+    <input type="number" id="liczba1" oninput="dzielenie()" onkeydown="validateInput(event, this)" step="1">
+    <span class="bold"> : </span>
+    <input type="number" id="liczba2" oninput="dzielenie()" onkeydown="validateInput(event, this)" step="1">
+    <span class="bold"> = </span>
+    <span id="wynik"></span>
+
+    <script>
+        function validateInput(event, input) {
+            // Blokuj wpisywanie kropek i przecinków
+            if ((event.key === '.' || event.key === ',') && event.key !== input.value) {
+                event.preventDefault();
+            }
+        }
+
+        function dzielenie() {
+            var liczba1 = parseInt(document.getElementById("liczba1").value);
+            var liczba2 = parseInt(document.getElementById("liczba2").value);
+            if (!isNaN(liczba1) && !isNaN(liczba2)) {
+                var wynik = Math.floor(liczba1 / liczba2);
+                var reszta = liczba1 % liczba2;
+                document.getElementById("wynik").innerHTML = liczba1 + " / " + liczba2 + " = " + wynik + " r. " + reszta;
+            }
+        }
+    </script>
+</body>
+</html>
