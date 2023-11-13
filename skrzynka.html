@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+          table {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 100px;
+            height: 149px;
+            border-bottom: 5px solid brown;
+            border-left: 5px solid brown;
+            border-right: 5px solid brown;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div id="Skrzynka1" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h2>Skrzynka #1</h2>
+            <table>
+                <tr>
+                    <td id="pic1"><img src="apple.jpg" alt="apple.jpg"></td>
+                    <td id="pic2"></td>
+                    <td id="pic3"></td>
+                    <td id="pic4"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="Skrzynka2" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h2>Skrzynka #2</h2>
+            <table>
+                <tr>
+                    <td id="pic11"></td>
+                    <td id="pic22"></td>
+                    <td id="pic33"></td>
+                    <td id="pic44"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        function allowDrop(ev) {
+          ev.preventDefault();
+        }
+        
+        function drag(ev) {
+          ev.dataTransfer.setData("text", ev.target.id);
+        }
+        
+        function drop(ev) {
+          ev.preventDefault();
+          var data = ev.dataTransfer.getData("text");
+          ev.target.appendChild(document.getElementById(data));
+        }
+        </script>
+        </head>
+        <body>
+        
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <img src="apple.jpg" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
+        </div>
+        
+        <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        
+        </body>
+        </html>
+        
+</body>
+</html>

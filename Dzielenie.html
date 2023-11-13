@@ -1,37 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Kalkulator dzielenia liczb całkowitych</title>
+    <title>Dzielenie liczb całkowitych</title>
     <style>
-        .bold {
+        .czcionka {
             font-weight: 1000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #wynik1 {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+        }
+
+        input {
+            margin-right: 5px;
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        input[czytaj] {
+            background-color: #f0f0f0;
+            cursor: not-allowed;
+            border: none;
         }
     </style>
 </head>
 <body>
     <h1>Dzielenie z resztą</h1>
     <p><b>Podaj dwie liczby całkowite</b></p>
-    <input type="number" id="liczba1" oninput="dzielenie()" onkeydown="validateInput(event, this)" step="1">
-    <span class="bold"> : </span>
-    <input type="number" id="liczba2" oninput="dzielenie()" onkeydown="validateInput(event, this)" step="1">
-    <span class="bold"> = </span>
-    <span id="wynik"></span>
+    <div id="wynik1">
+        <input type="number" id="liczba1" oninput="validateInput(event, this); dzielenie();" pattern="\d*" title="Wprowadź tylko cyfry" required>
+        <span class="czcionka"> : </span>
+        <input type="number" id="liczba2" oninput="validateInput(event, this); dzielenie();" pattern="\d*" title="Wprowadź tylko cyfry" required>
+        <span class="czcionka"> = </span>
+        <input type="tekst" id="wynik" readonly>
+        <input type="tekst" id="reszta" readonly>
+    </div>
 
     <script>
-        function validateInput(event, input) {
-            // Blokuj wpisywanie kropek i przecinków
-            if ((event.key === '.' || event.key === ',') && event.key !== input.value) {
-                event.preventDefault();
+        function validateInput(tak, input) {
+            if ((tak.key === '.' || tak.key === ',' || isNaN(this.key)) && tak.key !== input.value) {
+                tak.preventDefault();
             }
         }
 
         function dzielenie() {
             var liczba1 = parseInt(document.getElementById("liczba1").value);
             var liczba2 = parseInt(document.getElementById("liczba2").value);
-            if (!isNaN(liczba1) && !isNaN(liczba2)) {
+            var wynikElement = document.getElementById("wynik");
+            var resztaElement = document.getElementById("reszta");
+
+            if (!isNaN(liczba1) && !isNaN(liczba2) && liczba2 !== 0) {
                 var wynik = Math.floor(liczba1 / liczba2);
                 var reszta = liczba1 % liczba2;
-                document.getElementById("wynik").innerHTML = liczba1 + " / " + liczba2 + " = " + wynik + " r. " + reszta;
+                wynikElement.value = wynik;
+                resztaElement.value = "Reszta: " + reszta;
+            } else {
+                wynikElement.value = "";
+                resztaElement.value = "";
             }
         }
     </script>

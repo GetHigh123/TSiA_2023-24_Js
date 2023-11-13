@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+
+    table {
+      border-collapse: collapse;
+      margin: 0;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      padding: 0;
+      border: 2px solid red;
+      border-top: 0;
+    }
+    td, tr {
+      border: 2px solid red;
+      padding: 0;
+      margin: 0;
+      border-top: 0;
+      width: 100px;
+      height: 100px;
+    }
+    img {
+      width: 100px;
+      height: 100px;
+      padding: 0;
+      margin: 0;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+<div>
+<table>
+  <caption>Skrzynka #1</caption>
+  <tr>
+    <td id="p1" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="jablko1" src="/japko/apple.jpg" draggable="true" ondragstart="drag(event)"></td>
+    <td id="p2" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="jablko2" src="/japko/apple1.jpg" draggable="true" ondragstart="drag(event)"></td>
+    <td id="p3" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="jablko3" src="/japko/apple2.jpg" draggable="true" ondragstart="drag(event)"></td>
+    <td id="p4" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="jablko4" src="/japko/apple3.jpg" draggable="true" ondragstart="drag(event)"></td>
+  </tr>
+</table>
+</div>
+<div>
+<table>
+  <caption>Skrzynka #2</caption>
+  <tr>
+    <td id="p5" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+    <td id="p6" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+    <td id="p7" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+    <td id="p8" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+  </tr>
+</table>
+</div>
+<script>
+  function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    if (ev.target.tagName == 'TD') {
+    ev.target.appendChild(document.getElementById(data));
+}
+console.log('ID Elementu: ' + data)
+console.log('Co przenoszę:' + ev.target.id)
+console.log('Gdzie Przenoszę: ' + ev.target.tagName)
+
+
+}
+</script>
+</body>
+</html>
+
+
+
