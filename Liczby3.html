@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eldo</title>
+    <style>
+        .czerwony {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <fieldset>
+        <legend>♣Liczby Trzycyfrowe♣</legend>
+        
+        <div id="Numerki"></div>
+
+        <script>
+
+            var Numerki = document.getElementById("Numerki");
+
+            for (var i = 100; i <= 999; i++) {
+                if (getDigitSum(i) === 10) {
+        
+                    var numerSpan = document.createElement("span");
+                    numerSpan.textContent = i + " ";
+                    numerSpan.className = "czerwony";
+                    Numerki.appendChild(numerSpan);
+                } else {
+             
+                    var numerSpan = document.createElement("span");
+                    numerSpan.textContent = i + " ";
+                    Numerki.appendChild(numerSpan);
+                }
+            }
+
+       
+            function getDigitSum(numer) {
+                return numer.toString().split('').reduce(function (acc, cyfry) {
+                    return acc + parseInt(cyfry);
+                }, 0);
+            }
+        </script>
+    </fieldset>
+
+    <p><b>Liczb trzycyfrowych których suma cyfr jest równa 10, jest: 54</b></p>
+    <H1>JAKUB WALAS ZAPLACIC ZA KEBABY</H1>
+    
+</body>
+</html>
