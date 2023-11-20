@@ -69,7 +69,7 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    if (ev.target.tagName == 'TD' && ev.target.childElementCount === 0) {
+    if (ev.target.tagName == 'TD') {
     ev.target.appendChild(document.getElementById(data));
 }
 console.log('ID Elementu: ' + data)

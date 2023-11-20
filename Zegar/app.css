@@ -1,0 +1,46 @@
+.frame {
+    border: 2px solid black;
+    padding: 20px;
+    border-radius: 20px;
+}
+DIV.input_output {
+display: inline-block;
+height: 60px;
+width: 130px;
+}
+.hand{
+    background-color: black;
+    position: absolute;
+    transform-origin: 50% 100%;
+}
+#clock {
+    position: relative;
+    width: 20rem;
+    height: 20rem;
+    border: 5px solid black;
+    border-radius: 50%;
+}
+    #minute_hand{
+        width: 2.5px;
+        height: 7.5rem;
+        position: absolute;
+        top: 2.5rem;
+        left: 50%;
+        background-color: lightgoldenrodyellow;
+        transform-origin: bottom;
+    }
+    #hours_hand{
+        width: 5px;
+        height: 4rem;
+        position: absolute;
+        top: 6rem;
+        left: 50%;
+        background-color: gold;
+        transform-origin: bottom;
+    }
+    output {
+        border-bottom: 2px solid lightblue;
+        width: 100%;
+        display: inline-block;
+        text-align: right;
+    }
