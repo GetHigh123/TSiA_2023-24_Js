@@ -1,0 +1,14 @@
+.opel {
+border: 1px solid black;
+}
+form {
+    display: flex;
+    justify-content: space-between ;
+}
+
+.wybor {
+    display: inline-block;
+}
+.guzik {
+    text-align: right;
+}
