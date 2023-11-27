@@ -1,14 +1,25 @@
 .opel {
-border: 1px solid black;
+    border: 1px solid black;
 }
+
 form {
     display: flex;
-    justify-content: space-between ;
+    justify-content: space-between;
 }
 
 .wybor {
     display: inline-block;
 }
+
 .guzik {
     text-align: right;
+}
+
+fieldset {
+    width: 100%;
+    display: none;
+}
+
+#p1 {
+    margin-top: 10px;
 }

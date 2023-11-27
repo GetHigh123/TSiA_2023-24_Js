@@ -1,30 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Liczby palindromiczne</title>
+    <style>
+        #main {
+            border: 1px solid black;
+        }
+        body {
+  
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            float: right;
+        }
+        fieldset {
+            border: none;
+            
+        }
+        #wyjscie {
+            word-wrap: break-word;
+        }
+    </style>
 </head>
 <body>
-    <div class="opel">
-    <p>Znajdź liczby palindromiczne, czyli takie, które przy czytaniu od lewej do prawej i odwrotnie są takie same</p>
-    <form action="">
-    <div id="wybor">
-        <input type="radio" name="liczby" value="dwucyfrowe"> Dwucyfrowe
-        <input type="radio" name="liczby" value="trzycyfrowe"> Trzycyfrowe
-        <input type="radio" name="liczby" value="czterocyfrowe"> Czterocyfrowe
-        <input type="radio" name="liczby" value="pięciocyfrowe"> Pięciocyfrowe
-    </div>
-    <input type="submit" value="Znajdź" class="guzik">
-</form>
-</fieldset><span id="p1"></span>
-
-
-    <fieldset><legend>Liczby palindromiczne trzycyfrowe</legend>
-     
+    <div id="main">
+    <fieldset>
+        <p>Znajdź liczby palindromiczne, czyli takie, które przy czytaniu od lewej do prawej i na odwrót są identyczne.</p>
+        <br>
+        <input type="radio" name="cyfry" value="2" id="dwa">
+        <label for="dwa">Dwucyfrowe</label>
+        <input type="radio" name="cyfry" value="3" id="trzy">
+        <label for="trzy">Trzycyfrowe</label>
+        <input type="radio" name="cyfry" value="4" id="cztery">
+        <label for="cztery">Czterocyfrowe</label>
+        <input type="radio" name="cyfry" value="5" id="pięć">
+        <label for="pięć">Pięciocyfrowe</label>
+        <button onclick="generate()">Znajdź</button>
+        <fieldset style="border: 1px dashed black;">
+        <span id="wyjscie"></span>
+        <legend>Liczby palindromiczne</legend>
     </fieldset>
-</div>
-<script src="app.js"></script>
+    <div id="osiol"></div>
+    </fieldset>
+    </div>
+    
+    
+    <script>
+function generate() {
+    var cyfry = document.querySelector('input[name="cyfry"]:checked').value;
+    var min = Math.pow(10, cyfry - 1);
+    var max = Math.pow(10, cyfry) - 1;
+    
+    var wyjscie = document.getElementById("wyjscie");
+    var shrek = document.getElementById("osiol");
+    
+    shrek.innerHTML = '';
+    wyjscie.innerHTML = '';
+    
+    var count = 0;
+
+    for (var i = min; i <= max; i++) {
+        if (isPalindromic(i)) {
+            wyjscie.innerHTML += i + ", ";
+            count++;
+        }
+    }
+
+    if (wyjscie.innerHTML.length > 0) {
+        wyjscie.innerHTML = wyjscie.innerHTML.slice(0, -2) + '.';
+    }
+
+    shrek.innerHTML = 'Liczba znalezionych liczb palindromicznych jest: <b><br>' + count + '</b>.';
+}
+
+function isPalindromic(n) {
+    var s = n.toString();
+    for (var i = 0; i < s.length / 2; i++) {
+        if (s[i] !== s[s.length - i - 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+    </script>
 </body>
 </html>

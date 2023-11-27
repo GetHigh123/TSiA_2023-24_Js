@@ -1,33 +1,34 @@
- const isPalindrome = (num) => {
-        let str = num.toString();
-        return str === str.split('').reverse().join('');
-    }
+document.getElementById('Znajdź').addEventListener('click', function() {
+    var digitCount = document.querySelector('input[name="digits"]:checked').value;
+    var resultsDiv = document.getElementById('p1');
+    resultsDiv.innerHTML = '';
 
-    const findPalindromes = (min, max) => {
-        let palindromes = [];
-        for (let i = min; i <= max; i++) {
-            if (isPalindrome(i)) {
-                palindromes.push(i);
-            }
+    var start = Math.pow(10, digitCount - 1);
+    var end = Math.pow(10, digitCount) - 1;
+    var count = 0;
+
+    var numbersDiv = document.createElement('div');
+    numbersDiv.style.border = '1px dashed black';
+    numbersDiv.style.padding = '10px';
+    numbersDiv.style.marginBottom = '10px';
+
+    for (var i = start; i <= end; i++) {
+        if (isPalindrome(i)) {
+            var span = document.createElement('span');
+            span.textContent = i + ', ';
+            numbersDiv.appendChild(span);
+            count++;
         }
-        return palindromes;
     }
+if (isPalindrome.value= this.lastChild) {
+    span.textContent = i + '. ';
+}
+    resultsDiv.appendChild(numbersDiv);
+    resultsDiv.innerHTML += '<p>Ilość takich liczb to: <b>' + count + '</b> .</p>';
+});
 
-    const form = document.querySelector('form');
-    const fieldset = document.querySelector('fieldset');
-    const radios = document.querySelectorAll('input[type="radio"]');
-    const values = ['dwucyfrowe', 'trzycyfrowe', 'czterocyfrowe', 'pięciocyfrowe'];
-
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        let checked = Array.from(radios).find(radio => radio.checked);
-        let index = values.indexOf(checked.value);
-        let min = Math.pow(10, index + 1);
-        let max = Math.pow(10, index + 2) - 1;
-        let palindromes = findPalindromes(min, max);
-        let html = '';
-        palindromes.forEach(palindrome => {
-            html += `<p>${palindrome}</p>`;
-        });
-        fieldset.innerHTML = html;
-    });
+function isPalindrome(num) {
+    var str = num.toString();
+    var reversedStr = str.split('').reverse().join('');
+    return str === reversedStr;
+}
