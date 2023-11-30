@@ -1,0 +1,42 @@
+table {
+    border-collapse: collapse;
+}
+td {
+    border: 1px solid black;
+    padding: 2px;
+}
+p {
+    border: 2px solid black;
+    height: 50px;
+    margin: 1px;
+}
+.p1 {
+    background-color: dimgray;
+}
+button {
+    width: 60px;
+    height: 50px;
+    background-color: lightgrey;
+    border-radius: 5px;
+    font-size: larger;
+    border: 1px solid black;
+}
+.numbers {
+    color: white;
+    background-color: gray;
+}
+.clear {
+    background-color: red;
+    color: white;
+}
+.colspan {
+    width: 124px;
+}
+.Wynik-wyświetl {
+    text-align: right;
+    padding: 10px;
+}
+.Wejście-wyświetl {
+    text-align: right;
+    padding: 10px;
+}
